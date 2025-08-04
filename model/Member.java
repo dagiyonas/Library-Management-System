@@ -1,7 +1,7 @@
 package model;
 
-import interfaces.Borrowable;
-import interfaces.Returnable;
+import Interfaces.Borrowable;
+import Interfaces.Returnable;
 
 import java.util.ArrayList;
 

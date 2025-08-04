@@ -12,8 +12,8 @@ public class MemberDAO {
         try (Connection conn = DBConnectionUtil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, member.getUserId());
-            stmt.setString(2, member.section);
-            stmt.setBoolean(3, member.isAuthorized);
+            stmt.setString(2, member.getSection());
+            stmt.setBoolean(3, member.getIsAuthorized());
             stmt.executeUpdate();
         } catch (SQLException e) {
             System.err.println("Insert Member Failed: " + e.getMessage());

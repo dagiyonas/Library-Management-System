@@ -12,9 +12,9 @@ public class LibrarianDAO {
         try (Connection conn = DBConnectionUtil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, librarian.getUserId());
-            stmt.setString(2, librarian.section);
-            stmt.setBoolean(3, librarian.isAuthorized);
-            stmt.setString(4, librarian.shift);
+            stmt.setString(2, librarian.getSection());
+            stmt.setBoolean(3, librarian.getIsAuthorized());
+            stmt.setString(4, librarian.getShiftDetails());
             stmt.executeUpdate();
         } catch (SQLException e) {
             System.err.println("Insert Librarian Failed: " + e.getMessage());

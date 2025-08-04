@@ -1,7 +1,6 @@
 package model;
-
-import interfaces.Borrowable;
-import interfaces.Returnable;
+import Interfaces.Borrowable;
+import Interfaces.Returnable;
 
 public class Librarian extends LibraryUser implements Borrowable, Returnable {
     private String shift;
@@ -25,8 +24,8 @@ public class Librarian extends LibraryUser implements Borrowable, Returnable {
         return "Return policy managed by librarian.";
     }
 
-    public void getShiftDetails() {
-        System.out.println("Shift: " + shift);
+    public String getShiftDetails() {
+        return "Shift: " + shift;
     }
 
     @Override

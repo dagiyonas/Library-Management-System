@@ -1,8 +1,5 @@
 package model;
 
-public class Libraryuser {
-package model;
-
 import exceptions.InvalidLibraryUserException;
 
 public abstract class LibraryUser {
@@ -30,6 +27,11 @@ public abstract class LibraryUser {
     public String getUserId() {
         return userId;
     }
-}
-
+    public boolean getIsAuthorized() {
+        return isAuthorized;
+    }
+    public String getSection(){
+        return section;
+    }
+    
 }

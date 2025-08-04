@@ -1,7 +1,7 @@
 package ui;
 
-import interfaces.Borrowable;
-import interfaces.Returnable;
+import Interfaces.Borrowable;
+import Interfaces.Returnable;
 import model.Librarian;
 import model.Member;
 import service.LibrarySystem;
@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class MainApp {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         LibrarySystem system = new LibrarySystem();
 
         while (true) {
@@ -27,37 +27,37 @@ public class MainApp {
             System.out.println("8. Exit");
             System.out.print("Enter your choice: ");
 
-            int choice = Integer.parseInt(sc.nextLine());
+            int choice = Integer.parseInt(scanner.nextLine());
             try {
                 switch (choice) {
                     case 1 -> {
                         System.out.print("Enter Member ID: ");
-                        String id = sc.nextLine();
+                        String id = scanner.nextLine();
                         System.out.print("Enter Section: ");
-                        String section = sc.nextLine();
+                        String section = scanner.nextLine();
                         Member m = new Member(id, section, true);
                         system.addMember(m);
                         System.out.println("Member added.");
                     }
                     case 2 -> {
                         System.out.print("Enter Librarian ID: ");
-                        String id = sc.nextLine();
+                        String id = scanner.nextLine();
                         System.out.print("Enter Section: ");
-                        String section = sc.nextLine();
+                        String section = scanner.nextLine();
                         System.out.print("Enter Shift: ");
-                        String shift = sc.nextLine();
+                        String shift = scanner.nextLine();
                         Librarian l = new Librarian(id, section, true, shift);
                         system.addLibrarian(l);
                         System.out.println("Librarian added.");
                     }
                     case 3 -> {
                         System.out.print("Enter Member ID: ");
-                        String id = sc.nextLine();
+                        String id = scanner.nextLine();
                         Member m = system.findMember(id);
                         if (m != null) {
                             ((Borrowable) m).borrowBook();
                             System.out.print("Enter Book Title: ");
-                            String title = sc.nextLine();
+                            String title = scanner.nextLine();
                             m.borrowBook(title);
                             LoggerUtil.log("Book borrowed: " + title + " by " + id);
                         } else {
@@ -66,7 +66,7 @@ public class MainApp {
                     }
                     case 4 -> {
                         System.out.print("Enter Member ID: ");
-                        String id = sc.nextLine();
+                        String id = scanner.nextLine();
                         Member m = system.findMember(id);
                         if (m != null) {
                             String result = ((Returnable) m).returnBook();
@@ -78,7 +78,7 @@ public class MainApp {
                     }
                     case 5 -> {
                         System.out.print("Enter Member ID: ");
-                        String id = sc.nextLine();
+                        String id = scanner.nextLine();
                         Member m = system.findMember(id);
                         if (m != null) {
                             m.listBorrowedBooks();
@@ -88,7 +88,7 @@ public class MainApp {
                     }
                     case 6 -> {
                         System.out.print("Enter Librarian ID: ");
-                        String id = sc.nextLine();
+                        String id = scanner.nextLine();
                         Librarian l = system.findLibrarian(id);
                         if (l != null) {
                             l.getShiftDetails();
